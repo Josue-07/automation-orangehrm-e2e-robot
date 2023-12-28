@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.10 on win32)" generated="20231228 00:44:26.907" rpa="false" schemaversion="3">
+<suite id="s1" name="Run" source="C:\Users\Public\automacao-e2e\automation-orangehrm-e2e-robot\run">
+<suite id="s1-s1" name="Login Orangehrm" source="C:\Users\Public\automacao-e2e\automation-orangehrm-e2e-robot\run\login_orangehrm.robot">
+<test id="s1-s1-t1" name="CT001 - Realizar o login com sucesso no website OrangeHRM" line="9">
+<kw name="Given que acesso a url do website da OrangeHRM" library="base" type="SETUP">
+<kw name="Config open browser options" library="resouce">
+<var>${options}</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${CHROME_OPTIONS}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231228 00:44:28.151" level="INFO">${CHROME_OPTIONS} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002286EF9FA00&gt;</msg>
+<status status="PASS" starttime="20231228 00:44:28.150" endtime="20231228 00:44:28.151"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:28.151" endtime="20231228 00:44:28.152"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:28.152" endtime="20231228 00:44:28.153"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--aggressive-cache-discard</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:28.153" endtime="20231228 00:44:28.153"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-application-cache</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:28.153" endtime="20231228 00:44:28.153"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:28.153" endtime="20231228 00:44:28.153"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:28.154" endtime="20231228 00:44:28.154"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:28.154" endtime="20231228 00:44:28.154"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--mute-audio</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:28.154" endtime="20231228 00:44:28.154"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:28.154" endtime="20231228 00:44:28.155"/>
+</kw>
+<msg timestamp="20231228 00:44:28.155" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002286EF9FA00&gt;</msg>
+<status status="PASS" starttime="20231228 00:44:28.148" endtime="20231228 00:44:28.155"/>
+</kw>
+<if>
+<branch type="IF" condition="'${HEADLESS}' == 'True'">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${baseUrl}</arg>
+<arg>headlesschrome</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231228 00:44:28.158" level="INFO">Opening browser 'headlesschrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20231228 00:44:28.156" endtime="20231228 00:44:40.756"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${TIMEOUT_BROWSER}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20231228 00:44:40.756" endtime="20231228 00:44:40.759"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:28.155" endtime="20231228 00:44:40.759"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${baseUrl}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20231228 00:44:40.760" endtime="20231228 00:44:40.760"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${TIMEOUT_BROWSER}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" starttime="20231228 00:44:40.760" endtime="20231228 00:44:40.760"/>
+</kw>
+<status status="NOT RUN" starttime="20231228 00:44:40.759" endtime="20231228 00:44:40.760"/>
+</branch>
+<status status="PASS" starttime="20231228 00:44:28.155" endtime="20231228 00:44:40.760"/>
+</if>
+<status status="PASS" starttime="20231228 00:44:28.147" endtime="20231228 00:44:40.760"/>
+</kw>
+<kw name="Given preencho o input de username com um USUARIO VALIDO &quot;Admin&quot;" library="login_step" sourcename="preencho o input de username com um USUARIO VALIDO &quot;${username}&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${INPUT_USERNAME_LOGIN}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231228 00:44:40.768" level="INFO">Typing text 'Admin' into text field '(//input[@placeholder='Username'])[1]'.</msg>
+<status status="PASS" starttime="20231228 00:44:40.765" endtime="20231228 00:44:41.988"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:40.762" endtime="20231228 00:44:41.988"/>
+</kw>
+<kw name="And preencho o input de senha com uma SENHA VALIDA &quot;admin123&quot;" library="login_step" sourcename="preencho o input de senha com uma SENHA VALIDA &quot;${password}&quot;">
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${INPUT_PASSWORD_LOGIN}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231228 00:44:41.992" level="INFO">Typing password into text field '//input[@name='password']'.</msg>
+<msg timestamp="20231228 00:44:42.153" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231228 00:44:42.356" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231228 00:44:41.990" endtime="20231228 00:44:42.357"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:41.990" endtime="20231228 00:44:42.358"/>
+</kw>
+<kw name="When clicar no botão Login" library="login_step">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231228 00:44:42.364" level="INFO">Clicking button '//button[@type='submit'][contains(.,'Login')]'.</msg>
+<status status="PASS" starttime="20231228 00:44:42.362" endtime="20231228 00:44:42.617"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:42.360" endtime="20231228 00:44:42.618"/>
+</kw>
+<kw name="Then sou redirecionado com sucesso para a home do website da OrangeHRM" library="login_step">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${IMG_HOME_VALIDATE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231228 00:44:42.622" endtime="20231228 00:44:44.704"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${HOME_ELEMENT_VALIDATE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231228 00:44:44.793" level="INFO">Element '//h6[contains(.,'Dashboard')]' is displayed.</msg>
+<status status="PASS" starttime="20231228 00:44:44.705" endtime="20231228 00:44:44.793"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:42.621" endtime="20231228 00:44:44.794"/>
+</kw>
+<kw name="Fechar o navegador" library="base" type="TEARDOWN">
+<kw name="Capturar screenshot" library="resouce">
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${RESULT_OUTPUT_PATH}/screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20231228 00:44:44.799" endtime="20231228 00:44:44.803"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${TEST_NAME}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231228 00:44:45.085" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/CT001%20-%20Realizar%20o%20login%20com%20sucesso%20no%20website%20OrangeHRM.png"&gt;&lt;img src="screenshots/CT001%20-%20Realizar%20o%20login%20com%20sucesso%20no%20website%20OrangeHRM.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231228 00:44:44.803" endtime="20231228 00:44:45.086"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:44.797" endtime="20231228 00:44:45.087"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231228 00:44:45.088" endtime="20231228 00:44:47.198"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:44.795" endtime="20231228 00:44:47.199"/>
+</kw>
+<doc>Esse teste verifica o fluxo feliz
+da tela de login OrangeHRM</doc>
+<tag>CT001</tag>
+<tag>regressivos</tag>
+<tag>test_success</tag>
+<status status="PASS" starttime="20231228 00:44:28.144" endtime="20231228 00:44:47.200"/>
+</test>
+<test id="s1-s1-t2" name="CT002 - Realizar login com usuario incorreto" line="18">
+<kw name="Given que acesso a url do website da OrangeHRM" library="base" type="SETUP">
+<kw name="Config open browser options" library="resouce">
+<var>${options}</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${CHROME_OPTIONS}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231228 00:44:47.206" level="INFO">${CHROME_OPTIONS} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002286EFDE770&gt;</msg>
+<status status="PASS" starttime="20231228 00:44:47.206" endtime="20231228 00:44:47.206"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:47.206" endtime="20231228 00:44:47.207"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:47.207" endtime="20231228 00:44:47.207"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--aggressive-cache-discard</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:47.207" endtime="20231228 00:44:47.207"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-application-cache</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:47.207" endtime="20231228 00:44:47.207"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:47.207" endtime="20231228 00:44:47.208"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:47.208" endtime="20231228 00:44:47.208"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:47.208" endtime="20231228 00:44:47.208"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--mute-audio</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:47.208" endtime="20231228 00:44:47.208"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:44:47.208" endtime="20231228 00:44:47.208"/>
+</kw>
+<msg timestamp="20231228 00:44:47.209" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002286EFDE770&gt;</msg>
+<status status="PASS" starttime="20231228 00:44:47.205" endtime="20231228 00:44:47.209"/>
+</kw>
+<if>
+<branch type="IF" condition="'${HEADLESS}' == 'True'">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${baseUrl}</arg>
+<arg>headlesschrome</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231228 00:44:47.211" level="INFO">Opening browser 'headlesschrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20231228 00:44:47.210" endtime="20231228 00:44:55.652"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${TIMEOUT_BROWSER}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20231228 00:44:55.653" endtime="20231228 00:44:55.661"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:47.209" endtime="20231228 00:44:55.661"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${baseUrl}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20231228 00:44:55.662" endtime="20231228 00:44:55.663"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${TIMEOUT_BROWSER}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" starttime="20231228 00:44:55.663" endtime="20231228 00:44:55.663"/>
+</kw>
+<status status="NOT RUN" starttime="20231228 00:44:55.661" endtime="20231228 00:44:55.664"/>
+</branch>
+<status status="PASS" starttime="20231228 00:44:47.209" endtime="20231228 00:44:55.664"/>
+</if>
+<status status="PASS" starttime="20231228 00:44:47.205" endtime="20231228 00:44:55.664"/>
+</kw>
+<kw name="Given preencho o input de username com um USUARIO INVALIDO &quot;usuarioinvalido&quot;" library="login_step" sourcename="preencho o input de username com um USUARIO INVALIDO &quot;${usernameInvalid}&quot;">
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${INPUT_USERNAME_LOGIN}</arg>
+<arg>${usernameInvalid}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231228 00:44:55.671" level="INFO">Typing password into text field '(//input[@placeholder='Username'])[1]'.</msg>
+<msg timestamp="20231228 00:44:57.656" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231228 00:44:58.251" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231228 00:44:55.669" endtime="20231228 00:44:58.252"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:55.666" endtime="20231228 00:44:58.253"/>
+</kw>
+<kw name="And preencho o input de senha com uma SENHA VALIDA &quot;admin123&quot;" library="login_step" sourcename="preencho o input de senha com uma SENHA VALIDA &quot;${password}&quot;">
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${INPUT_PASSWORD_LOGIN}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231228 00:44:58.262" level="INFO">Typing password into text field '//input[@name='password']'.</msg>
+<msg timestamp="20231228 00:44:58.591" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231228 00:44:59.313" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231228 00:44:58.258" endtime="20231228 00:44:59.314"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:58.256" endtime="20231228 00:44:59.315"/>
+</kw>
+<kw name="When clicar no botão Login" library="login_step">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231228 00:44:59.359" level="INFO">Clicking button '//button[@type='submit'][contains(.,'Login')]'.</msg>
+<status status="PASS" starttime="20231228 00:44:59.355" endtime="20231228 00:45:00.006"/>
+</kw>
+<status status="PASS" starttime="20231228 00:44:59.352" endtime="20231228 00:45:00.007"/>
+</kw>
+<kw name="Then recebo uma mensagem &quot;Invalid credentials&quot; indicando erro ao se autenticar" library="login_step" sourcename="recebo uma mensagem &quot;${messageErrorAuthenticateLogin}&quot; indicando erro ao se autenticar">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MESSAGE_ERROR_LOGIN}</arg>
+<arg>${messageErrorAuthenticateLogin}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231228 00:45:00.087" level="INFO">Verifying element '//p[contains(.,'Invalid credentials')]' contains exact text 'Invalid credentials'.</msg>
+<status status="PASS" starttime="20231228 00:45:00.081" endtime="20231228 00:45:01.915"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:00.078" endtime="20231228 00:45:01.917"/>
+</kw>
+<kw name="Fechar o navegador" library="base" type="TEARDOWN">
+<kw name="Capturar screenshot" library="resouce">
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${RESULT_OUTPUT_PATH}/screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20231228 00:45:01.925" endtime="20231228 00:45:01.930"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${TEST_NAME}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231228 00:45:02.111" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/CT002%20-%20Realizar%20login%20com%20usuario%20incorreto.png"&gt;&lt;img src="screenshots/CT002%20-%20Realizar%20login%20com%20usuario%20incorreto.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231228 00:45:01.931" endtime="20231228 00:45:02.111"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:01.924" endtime="20231228 00:45:02.112"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231228 00:45:02.112" endtime="20231228 00:45:04.203"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:01.922" endtime="20231228 00:45:04.205"/>
+</kw>
+<tag>CT002</tag>
+<tag>regressivos</tag>
+<tag>test_failure</tag>
+<status status="PASS" starttime="20231228 00:44:47.203" endtime="20231228 00:45:04.206"/>
+</test>
+<test id="s1-s1-t3" name="CT003 - Realizar login com senha incorreto" line="24">
+<kw name="Given que acesso a url do website da OrangeHRM" library="base" type="SETUP">
+<kw name="Config open browser options" library="resouce">
+<var>${options}</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${CHROME_OPTIONS}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231228 00:45:04.223" level="INFO">${CHROME_OPTIONS} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002286F0481F0&gt;</msg>
+<status status="PASS" starttime="20231228 00:45:04.221" endtime="20231228 00:45:04.223"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:04.224" endtime="20231228 00:45:04.226"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:04.227" endtime="20231228 00:45:04.229"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--aggressive-cache-discard</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:04.230" endtime="20231228 00:45:04.232"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-application-cache</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:04.233" endtime="20231228 00:45:04.236"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:04.238" endtime="20231228 00:45:04.240"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:04.240" endtime="20231228 00:45:04.241"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:04.242" endtime="20231228 00:45:04.244"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--mute-audio</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:04.245" endtime="20231228 00:45:04.247"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:04.250" endtime="20231228 00:45:04.255"/>
+</kw>
+<msg timestamp="20231228 00:45:04.257" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002286F0481F0&gt;</msg>
+<status status="PASS" starttime="20231228 00:45:04.219" endtime="20231228 00:45:04.257"/>
+</kw>
+<if>
+<branch type="IF" condition="'${HEADLESS}' == 'True'">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${baseUrl}</arg>
+<arg>headlesschrome</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231228 00:45:04.270" level="INFO">Opening browser 'headlesschrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20231228 00:45:04.259" endtime="20231228 00:45:51.321"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${TIMEOUT_BROWSER}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20231228 00:45:51.322" endtime="20231228 00:45:51.330"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:04.258" endtime="20231228 00:45:51.330"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${baseUrl}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20231228 00:45:51.331" endtime="20231228 00:45:51.332"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${TIMEOUT_BROWSER}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" starttime="20231228 00:45:51.332" endtime="20231228 00:45:51.332"/>
+</kw>
+<status status="NOT RUN" starttime="20231228 00:45:51.330" endtime="20231228 00:45:51.332"/>
+</branch>
+<status status="PASS" starttime="20231228 00:45:04.257" endtime="20231228 00:45:51.333"/>
+</if>
+<status status="PASS" starttime="20231228 00:45:04.216" endtime="20231228 00:45:51.333"/>
+</kw>
+<kw name="Given preencho o input de username com um USUARIO VALIDO &quot;Admin&quot;" library="login_step" sourcename="preencho o input de username com um USUARIO VALIDO &quot;${username}&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${INPUT_USERNAME_LOGIN}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231228 00:45:51.340" level="INFO">Typing text 'Admin' into text field '(//input[@placeholder='Username'])[1]'.</msg>
+<status status="PASS" starttime="20231228 00:45:51.338" endtime="20231228 00:45:53.116"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:51.336" endtime="20231228 00:45:53.118"/>
+</kw>
+<kw name="And preencho o input de senha com uma SENHA INVALIDA &quot;admin456&quot;" library="login_step" sourcename="preencho o input de senha com uma SENHA INVALIDA &quot;${password}&quot;">
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${password}</arg>
+<arg>"admin123"</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20231228 00:45:53.123" endtime="20231228 00:45:53.125"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${INPUT_PASSWORD_LOGIN}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20231228 00:45:53.130" level="INFO">Typing password into text field '//input[@name='password']'.</msg>
+<msg timestamp="20231228 00:45:53.349" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20231228 00:45:53.643" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20231228 00:45:53.126" endtime="20231228 00:45:53.643"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:53.120" endtime="20231228 00:45:53.644"/>
+</kw>
+<kw name="When clicar no botão Login" library="login_step">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231228 00:45:53.648" level="INFO">Clicking button '//button[@type='submit'][contains(.,'Login')]'.</msg>
+<status status="PASS" starttime="20231228 00:45:53.646" endtime="20231228 00:45:53.996"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:53.645" endtime="20231228 00:45:53.997"/>
+</kw>
+<kw name="Then recebo uma mensagem &quot;Invalid credentials&quot; indicando erro ao se autenticar" library="login_step" sourcename="recebo uma mensagem &quot;${messageErrorAuthenticateLogin}&quot; indicando erro ao se autenticar">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MESSAGE_ERROR_LOGIN}</arg>
+<arg>${messageErrorAuthenticateLogin}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231228 00:45:54.011" level="INFO">Verifying element '//p[contains(.,'Invalid credentials')]' contains exact text 'Invalid credentials'.</msg>
+<status status="PASS" starttime="20231228 00:45:54.006" endtime="20231228 00:45:55.883"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:54.003" endtime="20231228 00:45:55.883"/>
+</kw>
+<kw name="Fechar o navegador" library="base" type="TEARDOWN">
+<kw name="Capturar screenshot" library="resouce">
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${RESULT_OUTPUT_PATH}/screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20231228 00:45:55.890" endtime="20231228 00:45:55.894"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${TEST_NAME}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231228 00:45:56.099" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/CT003%20-%20Realizar%20login%20com%20senha%20incorreto.png"&gt;&lt;img src="screenshots/CT003%20-%20Realizar%20login%20com%20senha%20incorreto.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231228 00:45:55.895" endtime="20231228 00:45:56.100"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:55.888" endtime="20231228 00:45:56.101"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231228 00:45:56.101" endtime="20231228 00:45:58.238"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:55.885" endtime="20231228 00:45:58.238"/>
+</kw>
+<tag>CT003</tag>
+<tag>regressivos</tag>
+<tag>test_failure</tag>
+<status status="PASS" starttime="20231228 00:45:04.211" endtime="20231228 00:45:58.240"/>
+</test>
+<test id="s1-s1-t4" name="CT004 - Realizar login sem preecher usuario e senha" line="30">
+<kw name="Given que acesso a url do website da OrangeHRM" library="base" type="SETUP">
+<kw name="Config open browser options" library="resouce">
+<var>${options}</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${CHROME_OPTIONS}</var>
+<arg>selenium.webdriver.ChromeOptions()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231228 00:45:58.251" level="INFO">${CHROME_OPTIONS} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002286F048220&gt;</msg>
+<status status="PASS" starttime="20231228 00:45:58.250" endtime="20231228 00:45:58.251"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:58.251" endtime="20231228 00:45:58.252"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:58.252" endtime="20231228 00:45:58.253"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--aggressive-cache-discard</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:58.255" endtime="20231228 00:45:58.256"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-application-cache</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:58.256" endtime="20231228 00:45:58.256"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:58.256" endtime="20231228 00:45:58.257"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:58.257" endtime="20231228 00:45:58.257"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--disable-gpu</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:58.257" endtime="20231228 00:45:58.258"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--mute-audio</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:58.258" endtime="20231228 00:45:58.258"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${CHROME_OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20231228 00:45:58.259" endtime="20231228 00:45:58.259"/>
+</kw>
+<msg timestamp="20231228 00:45:58.259" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000002286F048220&gt;</msg>
+<status status="PASS" starttime="20231228 00:45:58.249" endtime="20231228 00:45:58.259"/>
+</kw>
+<if>
+<branch type="IF" condition="'${HEADLESS}' == 'True'">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${baseUrl}</arg>
+<arg>headlesschrome</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231228 00:45:58.263" level="INFO">Opening browser 'headlesschrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20231228 00:45:58.260" endtime="20231228 00:46:08.251"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${TIMEOUT_BROWSER}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20231228 00:46:08.252" endtime="20231228 00:46:08.257"/>
+</kw>
+<status status="PASS" starttime="20231228 00:45:58.259" endtime="20231228 00:46:08.257"/>
+</branch>
+<branch type="ELSE">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${baseUrl}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20231228 00:46:08.258" endtime="20231228 00:46:08.258"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${TIMEOUT_BROWSER}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" starttime="20231228 00:46:08.259" endtime="20231228 00:46:08.259"/>
+</kw>
+<status status="NOT RUN" starttime="20231228 00:46:08.257" endtime="20231228 00:46:08.260"/>
+</branch>
+<status status="PASS" starttime="20231228 00:45:58.259" endtime="20231228 00:46:08.260"/>
+</if>
+<status status="PASS" starttime="20231228 00:45:58.247" endtime="20231228 00:46:08.261"/>
+</kw>
+<kw name="Given que não preencho o input de usuario" library="login_step">
+<kw name="Get Value" library="SeleniumLibrary">
+<var>${input_username_value}</var>
+<arg>${INPUT_USERNAME_LOGIN}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231228 00:46:09.543" level="INFO">${input_username_value} = </msg>
+<status status="PASS" starttime="20231228 00:46:08.264" endtime="20231228 00:46:09.543"/>
+</kw>
+<kw name="Should Be Empty" library="BuiltIn">
+<arg>${input_username_value}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<msg timestamp="20231228 00:46:09.543" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20231228 00:46:09.543" endtime="20231228 00:46:09.544"/>
+</kw>
+<status status="PASS" starttime="20231228 00:46:08.263" endtime="20231228 00:46:09.544"/>
+</kw>
+<kw name="And que não preecho o input de senha" library="login_step">
+<kw name="Get Value" library="SeleniumLibrary">
+<var>${input_senha_value}</var>
+<arg>${INPUT_PASSWORD_LOGIN}</arg>
+<doc>Returns the value attribute of the element identified by ``locator``.</doc>
+<msg timestamp="20231228 00:46:09.643" level="INFO">${input_senha_value} = </msg>
+<status status="PASS" starttime="20231228 00:46:09.547" endtime="20231228 00:46:09.643"/>
+</kw>
+<kw name="Should Be Empty" library="BuiltIn">
+<arg>${input_senha_value}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<msg timestamp="20231228 00:46:09.644" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20231228 00:46:09.644" endtime="20231228 00:46:09.644"/>
+</kw>
+<status status="PASS" starttime="20231228 00:46:09.545" endtime="20231228 00:46:09.645"/>
+</kw>
+<kw name="When clicar no botão Login" library="login_step">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231228 00:46:09.647" level="INFO">Clicking button '//button[@type='submit'][contains(.,'Login')]'.</msg>
+<status status="PASS" starttime="20231228 00:46:09.646" endtime="20231228 00:46:09.908"/>
+</kw>
+<status status="PASS" starttime="20231228 00:46:09.646" endtime="20231228 00:46:09.909"/>
+</kw>
+<kw name="Then recebo a mensagem de &quot;Required&quot; no input de usuario" library="login_step" sourcename="recebo a mensagem de &quot;${message_input}&quot; no input de usuario">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${INPUT_USERNAME_REQUIRED_MESSAGE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231228 00:46:10.051" level="INFO">Element '(//span[contains(.,'Required')])[1]' is displayed.</msg>
+<status status="PASS" starttime="20231228 00:46:09.911" endtime="20231228 00:46:10.052"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${INPUT_USERNAME_REQUIRED_MESSAGE}</arg>
+<arg>${message_input}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231228 00:46:10.054" level="INFO">Verifying element '(//span[contains(.,'Required')])[1]' contains exact text 'Required'.</msg>
+<status status="PASS" starttime="20231228 00:46:10.052" endtime="20231228 00:46:10.132"/>
+</kw>
+<status status="PASS" starttime="20231228 00:46:09.910" endtime="20231228 00:46:10.132"/>
+</kw>
+<kw name="And recebo a mensagem de &quot;Required&quot; no input de senha" library="login_step" sourcename="recebo a mensagem de &quot;${message_input}&quot; no input de senha">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${INPUT_SENHA_REQUIRED_MESSAGE}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231228 00:46:10.234" level="INFO">Element '(//span[contains(.,'Required')])[2]' is displayed.</msg>
+<status status="PASS" starttime="20231228 00:46:10.137" endtime="20231228 00:46:10.234"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${INPUT_SENHA_REQUIRED_MESSAGE}</arg>
+<arg>${message_input}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231228 00:46:10.237" level="INFO">Verifying element '(//span[contains(.,'Required')])[2]' contains exact text 'Required'.</msg>
+<status status="PASS" starttime="20231228 00:46:10.235" endtime="20231228 00:46:10.293"/>
+</kw>
+<status status="PASS" starttime="20231228 00:46:10.135" endtime="20231228 00:46:10.293"/>
+</kw>
+<kw name="Fechar o navegador" library="base" type="TEARDOWN">
+<kw name="Capturar screenshot" library="resouce">
+<kw name="Set Screenshot Directory" library="SeleniumLibrary">
+<arg>${RESULT_OUTPUT_PATH}/screenshots</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" starttime="20231228 00:46:10.296" endtime="20231228 00:46:10.299"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${TEST_NAME}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231228 00:46:10.453" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/CT004%20-%20Realizar%20login%20sem%20preecher%20usuario%20e%20senha.png"&gt;&lt;img src="screenshots/CT004%20-%20Realizar%20login%20sem%20preecher%20usuario%20e%20senha.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231228 00:46:10.299" endtime="20231228 00:46:10.453"/>
+</kw>
+<status status="PASS" starttime="20231228 00:46:10.295" endtime="20231228 00:46:10.454"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231228 00:46:10.455" endtime="20231228 00:46:12.543"/>
+</kw>
+<status status="PASS" starttime="20231228 00:46:10.294" endtime="20231228 00:46:12.544"/>
+</kw>
+<tag>CT004</tag>
+<tag>regressivos</tag>
+<tag>test_failure</tag>
+<status status="PASS" starttime="20231228 00:45:58.244" endtime="20231228 00:46:12.545"/>
+</test>
+<doc>Esssa suite testa o site da OrangeHRM</doc>
+<status status="PASS" starttime="20231228 00:44:27.025" endtime="20231228 00:46:12.551"/>
+</suite>
+<status status="PASS" starttime="20231228 00:44:26.930" endtime="20231228 00:46:12.557"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">CT001</stat>
+<stat pass="1" fail="0" skip="0">CT002</stat>
+<stat pass="1" fail="0" skip="0">CT003</stat>
+<stat pass="1" fail="0" skip="0">CT004</stat>
+<stat pass="4" fail="0" skip="0">regressivos</stat>
+<stat pass="3" fail="0" skip="0">test_failure</stat>
+<stat pass="1" fail="0" skip="0">test_success</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Run">Run</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s1" name="Login Orangehrm">Run.Login Orangehrm</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
